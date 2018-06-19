@@ -1,0 +1,23 @@
+<% if @new_tag %>
+    <div class="flash">
+        <% @new_tag.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+    </div>
+<% end %>
+
+<h3 class="margin0">Tags</h3>
+
+<div class="tag_all">
+    <% @tags.each do |tag| %>
+        <div class="gray side_tag">#<%= link_to(tag.name,"/tag/#{tag.name}") %>(<%= tag.post_count %>)</div>
+    <% end %>
+</div>
+
+<div class="tag_form if_smtfn_nondisp">
+    <%= form_tag("/new_tag") do %>
+        <h3 class="margin0">add tag</h3><br>
+        <input name ="new_tag">
+        <input type="submit" value="add!"><br>
+    <% end %>    
+</div>

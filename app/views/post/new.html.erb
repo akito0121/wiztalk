@@ -1,0 +1,34 @@
+<div class="flash">
+    <% @post.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+    <% end %>
+</div>
+
+<h1 class="center">new post!</h1>
+<div class="post_form">
+    <%= form_tag("/post/create",{multipart: true}) do %>
+    <div class="post_form_top">
+        <label>title<input name="title"></label><br>
+        <label>image</label><br>
+        <input type="file" name="image">
+        <label>contents</label>
+        <textarea rows="8" name="content"><%= @post.content %></textarea>
+    </div>
+    <div class="post_form_under">
+        <label>tags</label><br>
+        <% @tags.each do |tag| %>
+            <label><input type="checkbox" name="tag_name[]" value="<%= tag.name %>"><div class="btn btn-sık"><span>#<%= tag.name %></span></div></label>
+        <% end %>
+    </div>
+        <input type="submit" value="post!">
+    <% end %>
+</div>
+
+<div class="tag_form only_smtfn">
+    <%= form_tag("/new_tag") do %>
+        <h3 class="margin0">add tag</h3><br>
+        <input name ="new_tag">
+        <input type="submit" value="add!"><br>
+    <% end %>    
+    <h3 class="margin0">覆面トークについて</h3><br>
+</div>

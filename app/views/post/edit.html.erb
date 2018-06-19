@@ -1,0 +1,24 @@
+
+<div class="flash">
+    <% @post.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+    <% end %>
+</div>
+<h1 class="center">edit post!</h1>
+<div class="post_form">
+    <%= form_tag("/post/#{@post.id}/update") do %>
+    <div class="post_form_top">
+        <label>title<input name="title" value="<%= @post.title %>"></label><br>
+        <label>contents</label>
+        <textarea rows="8" name="content"><%= @post.content %></textarea>
+    </div>
+    <div class="post_form_under">
+        <label>tags</label><br>
+        <% @tags.each do |tag| %>
+            <label><input type="checkbox" name="tag_name[]" value="<%= tag.name %>"><div class="btn btn-sık"><span>#<%= tag.name %></span></div></label>
+        <% end %>
+    </div>
+        <input type="submit" value="done!">
+    <% end %>
+</div>
+

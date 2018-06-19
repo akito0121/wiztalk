@@ -1,0 +1,20 @@
+<div class="flash">
+  <%= @login_error %>
+</div>
+
+<h1>ログイン</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <%= form_tag("/user/login") do %>
+          <label>ニックネーム</label>
+          <input name="name" value="<%= @wrong_name %>"><br>
+          <label>パスワード</label>
+          <input name="password" type="password" value="<%= @wrong_pass %>"><br>
+          <input type="submit" value="ログイン" class="btnbtn">
+      <% end %>
+  </div>
+</div>
+
+ 
+      

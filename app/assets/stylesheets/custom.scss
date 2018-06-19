@@ -1,0 +1,167 @@
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+
+
+
+body {
+  padding-top: 60px;
+  // max-width:998px;
+  margin:0 auto;
+  font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background-color: #fafafa;
+  position: relative;
+　overflow-x: hidden;
+}
+img {
+  width: 100%;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin: 0 10px;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: 1px;
+  padding-top: 9px;
+  font-weight: 500;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: 2em;
+  border-radius: 3px;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+  background: linear-gradient(#FF655B, #FD297B);
+}
+
+.navbar-inverse {
+  border-color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+}
+
+ul.pop_ul {
+  padding: 0;
+  display: inline-block;
+  font-size: 0;
+  width: 60%;
+}
+
+li.pop_li {
+  list-style: none;
+  display: inline-block;
+  width: 50%;
+  font-size: 20px;
+  padding: 5px;
+}
+li.pop_li a {
+  display: block;
+  height: 48px;
+  line-height: 46px;
+  font-size: 90%;
+  color: #a5abaf;
+  border: 2px solid #d1d7da;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+li.pop_li:hover a {
+  display: block;
+  height: 48px;
+  line-height: 46px;
+  font-size: 90%;
+  color: #fff;
+  border: 2px solid #bbc2c6;
+  background: linear-gradient(#FF655B, #FD297B);
+}
+
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #fff0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle{
+  border: none !important;
+}

@@ -1,0 +1,40 @@
+<div class="popular">
+    <ul class="pop_ul">
+        <li class="pop_li"><%= link_to("my post","/user/post") %></li>
+        <li class="pop_li active"><%= link_to("likes","/user/like") %></li>
+    </ul>
+</div>
+投稿一覧
+<br>
+<div class="main_post" id="mainpost">
+<% i = 1 %>
+<% @likes.each do |like| %>
+    <% post = Post.find_by(id: like.post_id) %>
+    <% if post %>
+    <% cates = Category.where(post_id: post.id) %>
+        <%= link_to("/post/#{post.id}") do %>
+            <div class="post">
+                <p class="post_title"><small><%= i %></small>　<%= post.title %></p>
+                <% i+=1 %>
+                <p class="right">「いいね！」<%= post.lcount %> 件</p>
+                <div class="post_tag gray">
+                <% cates.each do |cate| %>
+                    <%= link_to("##{cate.name} ","/tag/#{cate.name}") %>
+                <% end %>
+                </div>
+                <p class="right gray margin0 fweight200"><%= post.time_from_created %></p>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+<% if i == 1 %>
+    <div class="flash">「いいね！」した投稿がここに表示されます</div>
+<% end %>
+</div>
+
+<div class="main_side">
+        <%= render 'layouts/side' %>
+</div>
+
+<p id="plus" class="icon"><a href="/post/new"><i class="fa fa-plus"></i></a></p>
+<p id="love" class="icon"><a href="/user/like"><i class="fa fa-heart"></i></a></p>

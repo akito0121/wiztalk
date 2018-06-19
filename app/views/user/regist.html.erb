@@ -1,0 +1,24 @@
+<div class="flash">
+  <% @user.errors.full_messages.each do |msg| %>
+    <%= msg %><br>
+  <% end %>
+</div>
+
+<% if @current_user == nil %>
+    <h1>ユーザー登録</h1>
+    
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+      <%= form_tag("/user/create") do %>
+          <label>ニックネーム</label>
+          <input name="name"><br>
+          <label>パスワード</label>
+          <input name="password" type="password"><br>
+          <label>性別</label><br>
+          <label>男<input type="radio" name="sex" value=1 checked></label>
+          <label>女<input type="radio" name="sex" value=2></label>
+          <input type="submit" value="登録する" class="btnbtn">
+      <% end %>
+      </div>
+    </div>
+<% end %>

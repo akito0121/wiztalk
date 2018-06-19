@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Wiztalk</title>
+  <meta name="description" content="マッチングアプリでのテクニックをシェアしよう">
+  <meta name="keywords" content="tinder,pairs,with,omiai,タップル,クロスミー,マッチングアプリ,出会い系,彼女,セフレ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+
+
+  
+  
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <%= render 'layouts/header' %>
+<div class="contents">
+    <div class="container">
+       <header>
+        
+        <div class="mainTop">
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+          
+      </header>
+    <%= yield %>
+    </div>
+    
+    
+    <p id="pageTop" class="icon"><a href="#"><i class="fa fa-chevron-up"></i></a></p>
+</div>
+ 
+
+</body>
+</html>

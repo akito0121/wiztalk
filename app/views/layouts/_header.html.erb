@@ -1,0 +1,30 @@
+<header>
+<nav class="navbar navbar-default navbar-fixed-top">
+   <div class="container">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+         <span class="sr-only">メニュー</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <%= link_to "Wiztalk", '/', id: "logo" %>
+      </div>
+      <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+               <% if @current_user %>
+                <li><%= link_to(@current_user.name,"/user/post") %></li>
+               <% end %>
+                <li><%= link_to "Home",   '/' %></li>
+                <li><%= link_to("新規投稿","/post/new") %></li>
+               <% if @current_user %>
+                <li><%= link_to("ログアウト","/user/logout", {method: :post}) %></li>
+               <% else %>
+                <li><%= link_to "登録",   '/user/regist' %></li>
+                <li><%= link_to "ログイン", '/user/login' %></li>
+               <% end %>
+            </ul>
+      </div>
+   </div>
+</nav>
+</header>

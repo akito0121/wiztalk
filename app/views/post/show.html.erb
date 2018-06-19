@@ -1,0 +1,72 @@
+
+<div class="main_post">
+<p class="show_title"><%= @post.title %></p>
+<div class="post show_post">
+<p class="show_user gray margin0"><%= @user.name %></p>
+<p class="show_time right gray fweight200 margin0"><%= @post.time_from_created %></p>
+<div class="show_content">
+<%= simple_format(text_url_to_link(h(@post.content)),{},sanitize: false) %></div>
+<% if @post.image %>
+<div class="show_image">
+    <img src = "<%= "/post_images/#{@post.image}" %>"><br>
+</div>
+<% end %>
+<div class="gray">
+<% cates = Category.where(post_id: @post.id) %>
+<% cates.each do |cate| %>
+    <%= link_to("##{cate.name} ","/tag/#{cate.name}") %>
+<% end %>
+</div>
+
+<div class="right">「いいね！」
+<% if @current_user %>
+    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+      <%= link_to("/like/#{@post.id}/destroy", {method: :post}) do %>
+        <span class="fa fa-heart like-btn-unlike"></span>
+      <% end %>
+    <% else %>
+      <%= link_to("/like/#{@post.id}/create", {method: :post}) do %>
+        <span class="fa fa-heart like-btn"></span>
+      <% end %>
+    <% end %>
+<% else %>
+    <%= link_to("/like/#{@post.id}/create", {method: :post}) do %>
+    <span class="fa fa-heart like-btn"></span>
+    <% end %>
+<% end %>
+<%= @like_count %>件
+</div>
+</div>
+
+<% if @current_user && @current_user.id == @user.id %>
+<%= link_to("/post/#{@post.id}/edit") do %>
+    <div class="post_edit"><span>編集する</span></div>
+<% end %>
+<% end %>
+<hr>
+
+<div class="post_comment">
+<% i = 1 %>
+<% @coms.each do |com| %>
+    <p class="comment_name gray"><%= i %>.　<%= com.name %></p>
+    <% i+=1 %>
+    <div class="comment_content"><%= simple_format(text_url_to_link(h(com.content)),{},sanitize: false) %></div>
+    <% if com.image %>
+        <div class="comment_image"><img src = "<%= "/com_images/#{com.image}" %>"><br></div>
+    <% end %>
+    <p class="right gray margin0 fweight200"><%= com.time_from_created %></p>
+    <hr>
+<% end %>
+
+<br>
+コメントを書き込む
+<br>
+<div class ="flash"><%= flash[:notice_comment] %></div>
+<%= form_tag("/post/#{@post.id}/comment",{multipart: true}) do %>
+    <textarea name="comment"></textarea>
+    <input type="file" name="image">
+    <input type="submit" value="書き込む">
+<% end %>
+<div id="end" ></div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="popular">
+    <ul class="pop_ul">
+      <% if @home %>
+        <li class="pop_li <%= @like_active %>"><%= link_to(:人気順,"/likes") %></li>
+        <li class="pop_li <%= @new_active %>"><%= link_to(:新着順,"/") %></li>
+      <% else %>
+        <li class="pop_li active"><%= link_to("my post","/user/post") %></li>
+        <li class="pop_li"><%= link_to("like","/user/like") %></li>
+      <% end %>
+    </ul>
+</div>
+
+<div class="main_side only_smtfn">
+    <%= render 'layouts/side' %>
+</div>
+
+投稿一覧
+<br>
+
+<div class="allcontents">
+    <div class="main_post" id="mainpost">
+        <% i = 1 %>
+    <% @posts.each do |post| %>
+        <% cates = Category.where(post_id: post.id) %>
+        <%= link_to("/post/#{post.id}") do %>
+            <div class="post">
+                <p class="post_title"><small class="gray"><%= i %>.</small>　<%= post.title %></p>
+                <% i+=1 %>
+                <% if post.image %>
+                    <div class="thm_img"><img src = "<%= "/post_images/#{post.image}" %>"><br></div>
+                <% end %>
+                <p class="right">「いいね！」<%= post.lcount %> 件</p>
+                
+                <div class="post_tag gray">
+                <% cates.each do |cate| %>
+                    <%= link_to("##{cate.name} ","/tag/#{cate.name}") %>
+                <% end %>
+                </div>
+                <p class="right gray margin0 fweight200"><%= post.time_from_created %></p>
+            </div>
+        <% end %>
+    <% end %>
+    </div>
+    
+    <div class="main_side if_smtfn_nondisp">
+        <%= render 'layouts/side' %>
+    </div>
+    
+
+</div>
+
+<p id="plus" class="icon"><a href="/post/new"><i class="fa fa-plus"></i></a></p>
+<p id="love" class="icon"><a href="/user/like"><i class="fa fa-heart"></i></a></p>

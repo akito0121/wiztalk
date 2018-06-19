@@ -1,0 +1,34 @@
+
+<h3 class="gray">#<%= @tag_name %></h3>
+
+<div class="main_side only_smtfn">
+    <%= render 'layouts/side' %>
+</div>
+
+<div class="main_post">
+    <% i = 1 %>
+<% @categorys.each do |category| %>
+    <% post = Post.find_by(id: category.post_id) %>
+    <% cates = Category.where(post_id: post.id) %>
+    <%= link_to("/post/#{post.id}") do %>
+        <div class="post">
+            <p class="post_title"><small><%= i %></small>　<%= post.title %></p>
+            <p class="right gray margin0"><%= post.time_from_created %></p>
+            <% i+=1 %>
+            <div class="post_tag">
+            <% cates.each do |cate| %>
+                <%= link_to("##{cate.name} ","/tag/#{cate.name}") %>
+            <% end %>
+            </div>
+            <p class="right">「いいね！」<%= post.lcount %> 件</p>
+        </div>
+    <% end %>
+<% end %>
+</div>
+
+<div class="main_side if_smtfn_nondisp">
+    <%= render 'layouts/side' %>
+</div>
+
+<p id="plus" class="icon"><a href="/post/new"><i class="fa fa-plus"></i></a></p>
+<p id="love" class="icon"><a href="/user/like"><i class="fa fa-heart"></i></a></p>

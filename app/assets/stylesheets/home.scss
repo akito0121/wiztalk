@@ -1,0 +1,117 @@
+.mainTop {
+    background-image:url("../images/main.png");
+    height:100%;
+    width:100%;
+    background-size:cover;
+}
+.main_post{
+    width: 70%;
+    display: inline-block;
+}
+
+.main_side {
+    width: 29%;
+    display: inline-block;
+    position: absolute;
+    padding: 10px 20px;
+}
+
+.only_smtfn{
+    display:none;
+}
+
+.post {
+    padding: 15px;
+    border: #bfbfbf solid 0.5px;
+    margin: 3px 0 10px 0;
+    border-radius: 3px;    
+    background-color: #fff;
+    box-shadow: 0px 1px 1px 0px #a5a9ab;
+}
+
+.post_tag a {
+    color: #8e8d8d;
+}
+
+.tag_form{
+}
+
+input[name="new_tag"]{
+    width: 100%;
+    max-width: 300px;
+}
+
+p.post_title {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.active{
+}
+
+.active > a{
+    color: white !important;
+    background: linear-gradient(#FF655B, #FD297B);
+}
+
+.side_tag{
+    font-size: 16px;
+}
+
+.thm_img {
+    width: 35%;
+} 
+
+
+
+@media screen and (max-width:480px){
+    .only_smtfn{
+        display:block;
+    }
+    
+    .if_smtfn_nondisp{
+        display:none;
+    }
+    
+    .main_post{
+        width:100%;
+    }
+    
+    .main_side{
+        width: 100%;
+        position:relative;
+        padding: 0;
+    }
+    
+    .tag_all{
+        white-space: nowrap;
+        padding: 20px 3px;
+        overflow-x: scroll;
+       -webkit-overflow-scrolling: touch;
+       overflow: -moz-scrollbars-horizontal;
+       overflow-x: auto;
+       position: relative;
+       width: 100%;
+       
+      overflow-y: hidden;
+    }
+    
+    .side_tag{
+        display: inline-block;
+        background: #f0f0f0;
+        height: 42px;
+        padding: 10px;
+        margin-right: 5px;
+        border-radius: 10px;
+        box-shadow: 0 3px 1px;
+    }
+    
+    ul.pop_ul {
+    width: 100%;
+
+    }
+    
+    
+    
+}
